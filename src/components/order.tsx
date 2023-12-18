@@ -8,7 +8,7 @@ export default function Order(props: any) {
 
     const setAsPaid = async () => {
         try {
-            await axios.post(`http://localhost:3000/api/setaspaid`, {
+            await axios.post(import.meta.env.VITE_API_URL + `/api/setaspaid`, {
                 _id: props.order._id,
                 API_KEY: import.meta.env.VITE_API_KEY
             })
@@ -19,7 +19,7 @@ export default function Order(props: any) {
 
     const setAsDelivered = async () => {
         try {
-            await axios.post(`http://localhost:3000/api/setasdelivered`, {
+            await axios.post(import.meta.env.VITE_API_URL + `/api/setasdelivered`, {
                 _id: props.order._id,
                 API_KEY: import.meta.env.VITE_API_KEY
             })
@@ -38,7 +38,7 @@ const secondes = Math.floor((diff/1000)%60)
 
 const cancelOrder = async () => {
     try {
-        await axios.post(`http://localhost:3000/api/setascancelled`, {
+        await axios.post(import.meta.env.VITE_API_URL + `/api/setascancelled`, {
             _id: order._id,
             API_KEY: import.meta.env.VITE_API_KEY
         })
